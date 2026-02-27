@@ -1,0 +1,250 @@
+body {
+    background-color: #162127;
+    color: #CF9D7B;
+    font-family: 'Century gothic';
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+img{
+    display: block;
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+    color:rgb(107, 34, 31);
+    text-shadow: 4px 4px 8px rgb(0, 0, 0, 0.7);
+}
+
+h2 {
+    text-align: center;
+    color:rgb(238, 173, 149);
+    text-shadow: 4px 4px 8px rgba(255, 4, 4, 0.7);
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    color: #8B0000;
+}
+
+a:visited {
+    color: #623020;
+}
+
+a:active {
+    color: #4F0005;
+}
+
+a:hover {
+    color: rgb(244, 37, 37);
+}
+nav {
+    text-align: center;
+    margin: 16px 0;
+}
+nav a {
+    color: #8B0000 !important;
+}
+
+ul {
+    margin: 12px 0;
+    background-color: #0e181c;
+    border-left: 3px solid #8B0000;
+    padding: 10px 10px 10px 36px;
+    border-radius: 4px;
+    font-family: 'Segoe Print';
+}
+
+ul li {
+    color: #CF9D7B;
+    font-size: 15px;
+    padding: 4px 0;
+    line-height: 1.7;
+}
+
+ol {
+    margin: 12px 0;
+    background-color: #0e181c;
+    border-left: 3px solid #6b3020;
+    padding: 10px 10px 10px 36px;
+    border-radius: 4px;
+    font-family: 'Segoe Print';
+}
+
+ol li {
+    color: #e8c9a8;
+    font-size: 15px;
+    padding: 4px 0;
+    line-height: 1.7;
+}
+
+dl {
+    background-color: #0e181c;
+    border: 2px solid #6b0e0e;
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 12px 0;
+    font-family: 'Segoe Print';
+}
+
+dt {
+    color: #fbd3b0;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 10px;
+    border-bottom: 1px solid #3a1010;
+    padding-bottom: 3px;
+}
+
+dd {
+    color: #CF9D7B;
+    margin-left: 20px;
+    padding: 6px 0 6px 10px;
+    border-left: 2px solid #3a1010;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.gallery-label {
+    text-align: center;
+    font-weight: bold;
+    color: #fbd3b0;
+    margin: 16px 0 6px;
+}
+
+
+table {
+    width: 88%;
+    margin: 40px auto;
+    background-color: #0e181c;
+    
+}
+
+table caption {
+    font-size: 24px;
+    font-weight: bold;
+    color: #CF9D7B;
+    letter-spacing: 2px;
+    padding: 12px 10px 16px;
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(255, 4, 4, 0.7);
+}
+
+.col-era     { width: 19%; }
+.col-season  { width: 9%;  }
+.col-ep      { width: 10%; }
+.col-date    { width: 19%; }
+.col-network { width: 14%; }
+
+table th,
+table td {
+    padding: 10px 14px;
+    border: 3px solid #6b0e0e;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+table th {
+    background-color: #5a0000;
+    color: #f0dcc8;
+    text-align: center;
+    font-size: 20px;
+    border-color: #8B0000;
+}
+
+.subheader-row th {
+    background-color: #542310;
+    color: #e0c0a0;
+    font-size: 20px;
+    border-color: #6a1a1a;
+}
+
+
+.row-dark {
+    background-color: #111e23;
+}
+
+
+.era-kripke { background-color: #1e0e0e; color: #e8b090; text-align: center;}
+.era-gamble { background-color: #0e1a0e; color: #90c890; text-align: center;}
+.era-carver { background-color: #0e0e1e; color: #9090d8; text-align: center;}
+.era-singer { background-color: #180e18; color: #c890c8; text-align: center;}
+
+
+.season-num {
+    text-align: center;
+    background-color: #461010a1;
+    font-weight: bold;
+    font-size: 18px;
+    border-right: 1px solid #6b2626;
+}
+
+
+.s1  { color: #ffaa00; }
+.s2  { color: #6699ff; }
+.s3  { color: #ff6666; }
+.s4  { color: #9999ff; }
+.s5  { color: #ffcc66; }
+.s6  { color: #99ff99; }
+.s7  { color: #ff6699; }
+.s8  { color: #ccff66; }
+.s9  { color: #6699cc; }
+.s10 { color: #ff9966; }
+.s11 { color: #cc99ff; }
+.s12 { color: #ffcc66; }
+.s13 { color: #99ccff; }
+.s14 { color: #ff99cc; }
+.s15 { color: #ffaa00; }
+
+
+.network-wb {
+    background-color: #141420;
+    text-align: center;
+    font-size: 18px;
+
+}
+.network-cw {
+    background-color: #0c1c1c;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+.td-right  { text-align: right;  }
+.td-left   { text-align: left;   }
+.td-center { text-align: center; }
+.td-middle { vertical-align: middle; }
+
+#characters-table {
+    border: 3px solid #c8912a;
+    background-color: #0a1318;
+}
+
+#characters-table caption {
+    color: #f5c97a;
+    text-shadow: 4px 4px 8px rgba(200, 145, 42, 0.6);
+    letter-spacing: 3px;
+}
+
+#characters-table th {
+    background-color: #3d332b;
+    color: #f5c97a;
+    border-color: #c8912a;
+    letter-spacing: 2px;
+}
+
+#characters-table td {
+    text-align: center;
+    border-color: #5a3a10;
+}
+
+
+iframe {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #8B0000;
+}
