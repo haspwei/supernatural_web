@@ -59,13 +59,6 @@ ul {
     font-family: 'Segoe Print';
 }
 
-ul li {
-    color: #CF9D7B;
-    font-size: 15px;
-    padding: 4px 0;
-    line-height: 1.7;
-}
-
 ol {
     margin: 12px 0;
     background-color: #0e181c;
@@ -73,13 +66,6 @@ ol {
     padding: 10px 10px 10px 36px;
     border-radius: 4px;
     font-family: 'Segoe Print';
-}
-
-ol li {
-    color: #e8c9a8;
-    font-size: 15px;
-    padding: 4px 0;
-    line-height: 1.7;
 }
 
 dl {
@@ -247,4 +233,32 @@ iframe {
     display: block;
     margin: 20px auto;
     border: 3px solid #8B0000;
+}
+
+
+/* Контекстний селектор */
+ul li {
+    color: #CF9D7B;
+    font-size: 15px;
+    padding: 4px 0;
+    line-height: 1.7;
+}
+
+ol li {
+    color: #e8c9a8;
+    font-size: 15px;
+    padding: 4px 0;
+    line-height: 1.7;
+}
+
+/* Сусідній селектор */
+h2 + p {
+    font-style: italic;
+    color: rgb(250, 188, 113);
+}
+
+/* Дочірній селектор */
+p > strong {
+    color: rgb(159, 53, 21);
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
