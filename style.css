@@ -7,27 +7,63 @@ body {
     margin: 20px;
 }
 
-img{
+/* Page header div */
+.page-header {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+/* Sticky navigation div */
+.nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(18, 28, 34, 0.85);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid #3a1010;
+    padding: 6px 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+img {
     display: block;
     margin: 0 auto;
 }
+
 h1 {
-    text-align: center;
-    color:rgb(107, 34, 31);
+    color: rgb(107, 34, 31);
     text-shadow: 4px 4px 8px rgb(0, 0, 0, 0.7);
 }
 
+/* Псевдоелемент ::after — декоративна лінія під h2 */
 h2 {
     text-align: center;
-    color:rgb(238, 173, 149);
+    color: rgb(238, 173, 149);
     text-shadow: 4px 4px 8px rgba(255, 4, 4, 0.7);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #8B0000, transparent);
+    margin: 5px auto 0;
+    border-radius: 2px;
 }
 
 p {
     text-align: justify;
 }
 
-a {
+/* Рядковий елемент <span> для виділення імен */
+.char-name {
+    color: #fbd3b0;
+    font-style: italic;
+}
+
+a:link {
     color: #8B0000;
 }
 
@@ -35,20 +71,14 @@ a:visited {
     color: #623020;
 }
 
+a:hover {
+    color: rgb(244, 37, 37);
+}
+
 a:active {
     color: #4F0005;
 }
 
-a:hover {
-    color: rgb(244, 37, 37);
-}
-nav {
-    text-align: center;
-    margin: 16px 0;
-}
-nav a {
-    color: #8B0000 !important;
-}
 
 ul {
     margin: 12px 0;
@@ -66,6 +96,12 @@ ol {
     padding: 10px 10px 10px 36px;
     border-radius: 4px;
     font-family: 'Segoe Print';
+}
+
+/* Псевдоклас :first-child — перший елемент нумерованого списку */
+ol li:first-child {
+    color: #fbd3b0;
+    font-weight: bold;
 }
 
 dl {
@@ -86,6 +122,13 @@ dt {
     padding-bottom: 3px;
 }
 
+/* Псевдоелемент ::before — маркер перед кожним терміном */
+dt::before {
+    content: "𖤐 ";
+    color: #8B0000;
+    font-size: 18px;
+}
+
 dd {
     color: #CF9D7B;
     margin-left: 20px;
@@ -95,19 +138,61 @@ dd {
     line-height: 1.7;
 }
 
-.gallery-label {
-    text-align: center;
-    font-weight: bold;
-    color: #fbd3b0;
-    margin: 16px 0 6px;
+/* Gallery div */
+.gallery {
+    overflow: hidden;
+    padding: 10px 0;
 }
 
+.gallery-item {
+    float: left;
+    width: calc(50% - 24px);
+    margin: 8px 12px;
+    text-align: center;
+}
+
+.gallery-item:nth-child(odd) {
+    clear: left;
+}
+
+.gallery-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery-label {
+    font-weight: bold;
+    color: #fbd3b0;
+    margin: 8px 0 4px;
+}
+
+
+/* Cassette section div */
+.cassette-section {
+    text-align: center;
+    margin: 16px auto;
+}
+
+.cassette-section p {
+    text-align: center;
+}
+
+/* Iframe wrapper div */
+.iframe-wrapper {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.iframe-wrapper iframe {
+    border: 3px solid #8B0000;
+}
 
 table {
     width: 88%;
     margin: 40px auto;
     background-color: #0e181c;
-    
 }
 
 table caption {
@@ -149,17 +234,14 @@ table th {
     border-color: #6a1a1a;
 }
 
-
 .row-dark {
     background-color: #111e23;
 }
 
-
-.era-kripke { background-color: #1e0e0e; color: #e8b090; text-align: center;}
-.era-gamble { background-color: #0e1a0e; color: #90c890; text-align: center;}
-.era-carver { background-color: #0e0e1e; color: #9090d8; text-align: center;}
-.era-singer { background-color: #180e18; color: #c890c8; text-align: center;}
-
+.era-kripke { background-color: #1e0e0e; color: #e8b090; text-align: center; }
+.era-gamble { background-color: #0e1a0e; color: #90c890; text-align: center; }
+.era-carver { background-color: #0e0e1e; color: #9090d8; text-align: center; }
+.era-singer { background-color: #180e18; color: #c890c8; text-align: center; }
 
 .season-num {
     text-align: center;
@@ -168,7 +250,6 @@ table th {
     font-size: 18px;
     border-right: 1px solid #6b2626;
 }
-
 
 .s1  { color: #ffaa00; }
 .s2  { color: #6699ff; }
@@ -186,19 +267,17 @@ table th {
 .s14 { color: #ff99cc; }
 .s15 { color: #ffaa00; }
 
-
 .network-wb {
     background-color: #141420;
     text-align: center;
     font-size: 18px;
-
 }
+
 .network-cw {
     background-color: #0c1c1c;
     font-size: 18px;
     text-align: center;
 }
-
 
 .td-right  { text-align: right;  }
 .td-left   { text-align: left;   }
@@ -226,39 +305,4 @@ table th {
 #characters-table td {
     text-align: center;
     border-color: #5a3a10;
-}
-
-
-iframe {
-    display: block;
-    margin: 20px auto;
-    border: 3px solid #8B0000;
-}
-
-
-/* Контекстний селектор */
-ul li {
-    color: #CF9D7B;
-    font-size: 15px;
-    padding: 4px 0;
-    line-height: 1.7;
-}
-
-ol li {
-    color: #e8c9a8;
-    font-size: 15px;
-    padding: 4px 0;
-    line-height: 1.7;
-}
-
-/* Сусідній селектор */
-h2 + p {
-    font-style: italic;
-    color: rgb(250, 188, 113);
-}
-
-/* Дочірній селектор */
-p > strong {
-    color: rgb(159, 53, 21);
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }

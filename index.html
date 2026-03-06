@@ -10,27 +10,32 @@
 </head>
 
 <body>
-    <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
 
+    <!-- Блочний елемент div: шапка сторінки (лого + заголовок) -->
+    <div class="page-header">
+        <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
+        <h1>Main Page</h1>
+    </div>
 
-    <h1>Main Page</h1>
-
-    <nav>
-        <a href="index.html"><b>Main Page</b></a> |
-        <a href="characters.html">Characters</a> |
-        <a href="music.html">Soundtracks</a> |
-        <a href="bestiary.html">Bestiary</a>
-    </nav>
+    <!-- Блочний елемент div: липке меню (position: sticky) -->
+    <div class="nav-sticky">
+        <nav>
+            <a href="index.html"><b>Main Page</b></a> |
+            <a href="characters.html">Characters</a> |
+            <a href="music.html">Soundtracks</a> |
+            <a href="bestiary.html">Bestiary</a>
+        </nav>
+    </div>
 
     <h2>About</h2>
 
-    <!-- Inline style -->
+    <!-- Рядковий елемент span: виділення імен персонажів -->
     <p>
         <strong>Supernatural</strong> is an American television series created by Eric
         Kripke. It was first broadcast on September 13, 2005, on The WB, and subsequently became part of successor
-        network The CW's lineup. Starring <em>Jared Padalecki</em> as <strong>Sam Winchester</strong> and <em>Jensen
-            Ackles</em> as <strong>Dean Winchester</strong>, the series follows the two brothers as they hunt
-        demons, ghosts, monsters and other supernatural beings.
+        network The CW's lineup. Starring <em>Jared Padalecki</em> as <strong><span class="char-name">Sam Winchester</span></strong>
+        and <em>Jensen Ackles</em> as <strong><span class="char-name">Dean Winchester</span></strong>, the series
+        follows the two brothers as they hunt demons, ghosts, monsters and other supernatural beings.
         <a href="characters.html#main_trio">Click here to meet the main characters</a>
     </p>
 
@@ -216,10 +221,13 @@
         </tr>
     </table>
 
-    <a name="trailer"></a>
-    <iframe width="700" height="400" src="https://mover.uz/video/embed/ilosLWLm" frameborder="0" allowfullscreen
-        title="Supernatural Trailer">
-    </iframe>
+    <!-- Блочний елемент div: обгортка для iframe -->
+    <div class="iframe-wrapper">
+        <a name="trailer"></a>
+        <iframe width="700" height="400" src="https://mover.uz/video/embed/ilosLWLm" frameborder="0" allowfullscreen
+            title="Supernatural Trailer">
+        </iframe>
+    </div>
 
 </body>
 

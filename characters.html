@@ -11,16 +11,21 @@
 
 <body>
 
-    <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
+    <!-- Блочний елемент div: шапка сторінки (лого + заголовок) -->
+    <div class="page-header">
+        <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
+        <h1>Characters</h1>
+    </div>
 
-    <h1>Characters</h1>
-
-    <nav>
-        <a href="index.html">Main Page</a> |
-        <a href="characters.html"><b>Characters</b></a> |
-        <a href="music.html">Soundtracks</a> |
-        <a href="bestiary.html">Bestiary</a>
-    </nav>
+    <!-- Блочний елемент div: липке меню (position: sticky) -->
+    <div class="nav-sticky">
+        <nav>
+            <a href="index.html">Main Page</a> |
+            <a href="characters.html"><b>Characters</b></a> |
+            <a href="music.html">Soundtracks</a> |
+            <a href="bestiary.html">Bestiary</a>
+        </nav>
+    </div>
 
     <!-- Table 3*4 with main characters -->
     <table id="characters-table">
@@ -85,9 +90,11 @@
     <h2>Supporting Characters</h2>
 
     <p>
-        While Sam, Dean, and Castiel form the core of the show, <strong>Supernatural</strong> features numerous
-        memorable supporting characters who help, hinder, or challenge the Winchesters throughout their journey.
-        From fellow hunters to supernatural allies, these characters add depth and complexity to the series' universe.
+        While <span class="char-name">Sam</span>, <span class="char-name">Dean</span>, and
+        <span class="char-name">Castiel</span> form the core of the show, <strong>Supernatural</strong> features
+        numerous memorable supporting characters who help, hinder, or challenge the Winchesters throughout their
+        journey. From fellow hunters to supernatural allies, these characters add depth and complexity to the series'
+        universe.
     </p>
 
     <dl>

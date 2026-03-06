@@ -10,16 +10,22 @@
 </head>
 
 <body>
-    <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
 
-    <h1>Bestiary</h1>
+    <!-- Блочний елемент div: шапка сторінки (лого + заголовок) -->
+    <div class="page-header">
+        <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
+        <h1>Bestiary</h1>
+    </div>
 
-    <nav>
-        <a href="index.html">Main Page</a> |
-        <a href="characters.html">Characters</a> |
-        <a href="music.html">Soundtracks</a> |
-        <a href="bestiary.html"><b>Bestiary</b></a>
-    </nav>
+    <!-- Блочний елемент div: липке меню (position: sticky) -->
+    <div class="nav-sticky">
+        <nav>
+            <a href="index.html">Main Page</a> |
+            <a href="characters.html">Characters</a> |
+            <a href="music.html">Soundtracks</a> |
+            <a href="bestiary.html"><b>Bestiary</b></a>
+        </nav>
+    </div>
 
     <h2>The World of Monsters</h2>
 
@@ -27,16 +33,16 @@
         The Supernatural universe is filled with creatures from mythology, folklore, and urban legends.
         Throughout 15 seasons, the Winchester brothers have hunted everything from common ghosts to
         ancient biblical beings. Each creature follows its own set of rules, weaknesses, and behaviors
-        that hunters must learn to survive. The Men of Letters have spent centuries cataloging these monsters
-        in extensive bestiaries.
+        that hunters must learn to survive. The Men of Letters have spent
+        centuries cataloging these monsters in extensive bestiaries.
     </p>
 
     <p>
         Hunting monsters isn't just about weapons — it requires knowledge and preparation.
         What works on a vampire won't work on a demon. Some creatures can only be killed with specific items:
         silver for werewolves, iron for ghosts, or an angel blade for celestial beings.
-        The Winchesters carry a mobile arsenal in their iconic 1967 Chevrolet Impala, ready for
-        any supernatural threat.
+        The Winchesters carry a mobile arsenal in their iconic 1967 Chevrolet Impala,
+        ready for any supernatural threat.
     </p>
 
     <h2>Most Iconic Creatures</h2>
@@ -95,20 +101,34 @@
 
     <h2>Gallery</h2>
 
-    <p class="gallery-label">Demons</p>
-    <img src="demons.jpg" alt="Demons">
+    <!-- Блочний елемент div: галерея з float для зображень -->
+    <div class="gallery">
 
-    <p class="gallery-label">Vampire</p>
-    <img src="vampire.jpg" width="700" height="394" alt="Vampire">
+        <div class="gallery-item">
+            <p class="gallery-label">Ghosts</p>
+            <img src="ghosts.jpg" width="792" height="448" alt="Ghosts">
+        </div>
 
-    <p class="gallery-label">Werewolf</p>
-    <img src="werewolf.png" alt="Werewolf">
+        <div class="gallery-item">
+            <p class="gallery-label">Vampire</p>
+            <img src="vampire.jpg" width="700" height="394" alt="Vampire">
+        </div>
+        
+        <div class="gallery-item">
+            <p class="gallery-label">Werewolf</p>
+            <img src="werewolf.png" alt="Werewolf">
+        </div>
+        <div class="gallery-item">
+            <p class="gallery-label">Angels</p>
+            <img src="angels.png" alt="Angels">
+        </div>
 
-    <p class="gallery-label">Angels</p>
-    <img src="angels.png" alt="Angels">
+        <div class="gallery-item">
+            <p class="gallery-label">Demons</p>
+            <img src="demons.jpg" alt="Demons">
+        </div>
 
-    <p class="gallery-label">Ghosts</p>
-    <img src="ghosts.jpg" width="792" height="448" alt="Ghosts">
+    </div>
 
 </body>
 

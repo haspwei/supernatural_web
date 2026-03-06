@@ -10,16 +10,22 @@
 </head>
 
 <body>
-    <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
 
-    <h1>Soundtracks</h1>
+    <!-- Блочний елемент div: шапка сторінки (лого + заголовок) -->
+    <div class="page-header">
+        <img src="Supernatural-logo.jpg" alt="Supernatural Logo">
+        <h1>Soundtracks</h1>
+    </div>
 
-    <nav>
-        <a href="index.html">Main Page</a> |
-        <a href="characters.html">Characters</a> |
-        <a href="music.html"><b>Soundtracks</b></a> |
-        <a href="bestiary.html">Bestiary</a>
-    </nav>
+    <!-- Блочний елемент div: липке меню (position: sticky) -->
+    <div class="nav-sticky">
+        <nav>
+            <a href="index.html">Main Page</a> |
+            <a href="characters.html">Characters</a> |
+            <a href="music.html"><b>Soundtracks</b></a> |
+            <a href="bestiary.html">Bestiary</a>
+        </nav>
+    </div>
 
     <h2>Music is Everything</h2>
 
@@ -33,10 +39,10 @@
 
     <p>
         <em>The Impala's cassette collection</em> features the greatest hits of the 70s and 80s rock scene.
-        Dean Winchester, the self-appointed "driver" of the legendary black Impala, has an unbreakable rule:
-        <strong>"Driver picks the music, shotgun shuts his cakehole."</strong> This rule has led to countless
-        memorable moments as the brothers drive across America hunting monsters to the sound of classic rock
-        anthems.
+        <span class="char-name">Dean Winchester</span>, the self-appointed "driver" of the legendary black Impala,
+        has an unbreakable rule: <strong>"Driver picks the music, shotgun shuts his cakehole."</strong> This rule
+        has led to countless memorable moments as the brothers drive across America hunting monsters to the sound
+        of classic rock anthems.
     </p>
 
     <h2>Top Iconic Tracks</h2>
@@ -70,17 +76,17 @@
 
     <h2>Dean's Cassette</h2>
 
-    <p class="td-center">
+    <!-- Блочний елемент div: секція касети (зображення + підпис + посилання) -->
+    <div class="cassette-section">
         <a href="cassette.png" target="_blank">
             <img src="cassette.png" width="400" height="300" alt="Cassette">
         </a>
-    </p>
-    <p class="td-center">Click on the image to see full-sized</p>
-
-    <p class="td-center">
-        <a href="https://open.spotify.com/playlist/1IEQ8C3G1qT0W80muYgROT?si=IF3bngapRnmJkDSBslCUyg"
-            target="_blank">Click here to listen to Supernatural playlist</a>
-    </p>
+        <p>Click on the image to see full-sized</p>
+        <p>
+            <a href="https://open.spotify.com/playlist/1IEQ8C3G1qT0W80muYgROT?si=IF3bngapRnmJkDSBslCUyg"
+                target="_blank">Click here to listen to Supernatural playlist</a>
+        </p>
+    </div>
 
 </body>
 
