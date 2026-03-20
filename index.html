@@ -7,9 +7,18 @@
     <title>Supernatural Main Page</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
+
+    <!-- Inline script: document.write - runs during page load  -->
+    <!-- document.write works only during page parsing; calling it later would erase the document -->
+    <script>
+        document.write("<p style='text-align:center; color:#8B0000; font-style:italic;'>" +
+            "Supernatural fan database - last updated " + new Date().getFullYear() +
+            "</p>");
+    </script>
 
     <!-- Блочний елемент div: шапка сторінки (лого + заголовок) -->
     <div class="page-header">
@@ -80,12 +89,77 @@
 
         <li><strong>Iconic Classic Rock Soundtrack</strong> - Dean's love for classic rock defines the show's
             atmosphere. Driving in the <b>1967 Chevy Impala</b> to Led Zeppelin, AC/DC, and Kansas creates an
-            unforgettable viewing experience. Music isn't just background — it's a character itself.</li>
+            unforgettable viewing experience. Music isn't just background - it's a character itself.</li>
 
         <li><strong>Passionate Fan Community</strong> - The <em>"SPN Family"</em> is one of the most dedicated
             fanbases in television history. Conventions, fan art, and the show's impact on pop culture demonstrate
             its lasting legacy. The series finale was a global event, trending worldwide.</li>
     </ol>
+
+    <!-- Внутрішній скрипт: застосування alert, prompt, confirm -->
+    <script>
+        function welcomeHunter() {
+            // prompt - запитує ввід, повертає рядок або null при скасуванні
+            let name = prompt("Enter your hunter codename to access the database:", "Winchester");
+            if (name !== null && name.trim() !== "") {
+                // alert - показує повідомлення
+                alert("Welcome, hunter " + name.trim() + "!\nThe Supernatural database is now unlocked.");
+            }
+        }
+
+        function checkClearance() {
+            // confirm - діалог так/ні, повертає true або false
+            let granted = confirm("This section contains classified intel on supernatural creatures.\nDo you have the necessary clearance?");
+            if (granted) {
+                alert("Access granted. Proceed with caution, hunter.");
+            } else {
+                alert("Access denied. Contact the Men of Letters for credentials.");
+            }
+        }
+    </script>
+
+    <h2>Men of Letters Archive</h2>
+
+    <div class="toolkit-section">
+
+        <div class="toolkit-group">
+            <h3>Archive Access</h3>
+            <button onclick="welcomeHunter()">Identify Yourself</button>
+            <button onclick="checkClearance()">Verify Clearance</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Hunter Quiz</h3>
+            <button onclick="dialogWithUser()">Take the Quiz</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Codename Comparison</h3>
+            <button onclick="compareStrings()">Compare Two Names</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Maintainer</h3>
+            <button onclick="showDeveloper('Maiko', 'Nadiia')">Page Developer</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Page Theme</h3>
+            <button onclick="changeBackground()">Switch Background (30 s)</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>External Links</h3>
+            <button onclick="goToPage('https://supernatural.fandom.com/wiki/Supernatural')">Supernatural Wiki</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Season Chronicle</h3>
+            <button onclick="revealEpisodeCount()">Update Table Caption</button>
+            <button onclick="glowHeadings()">Highlight Headings</button>
+        </div>
+
+    </div>
 
     <table>
         <colgroup>
@@ -97,7 +171,8 @@
             <col class="col-network">
         </colgroup>
 
-        <caption><b>Supernatural: 15 Seasons (2005–2020)</b></caption>
+        
+        <caption id="seasons-caption"><b>Supernatural: 15 Seasons (2005–2020)</b></caption>
 
         <tr>
             <th rowspan="2">Era / Showrunner</th>

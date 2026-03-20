@@ -306,3 +306,59 @@ table th {
     text-align: center;
     border-color: #5a3a10;
 }
+
+
+.toolkit-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 16px 0 24px;
+}
+
+.toolkit-group {
+    background-color: #0e181c;
+    border: 1px solid #3a1010;
+    border-left: 3px solid #8B0000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    flex: 1 1 300px;
+}
+
+.toolkit-group h3 {
+    color: #fbd3b0;
+    font-size: 15px;
+    margin: 0 0 8px;
+    font-family: 'Segoe Print';
+}
+
+.toolkit-group p {
+    font-size: 14px;
+    margin: 6px 0 10px;
+    text-align: left;
+}
+
+.toolkit-group code {
+    background-color: #1a2830;
+    color: #99ccff;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+button {
+    background-color: #3a0a0a;
+    color: #CF9D7B;
+    border: 1px solid #8B0000;
+    padding: 7px 16px;
+    margin: 4px 4px 4px 0;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Century gothic';
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+    background-color: #8B0000;
+    color: #fbd3b0;
+}

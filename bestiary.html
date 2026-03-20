@@ -7,6 +7,7 @@
     <title>Supernatural Bestiary</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -48,7 +49,7 @@
     <h2>Most Iconic Creatures</h2>
 
     <dl>
-        <dt>Demons</dt>
+        <dt>Demons<!-- Weakness: holy water, exorcism ritual, demon-killing knife, the Colt --></dt>
         <dd>
             Demons are malevolent spiritual entities that are considered the direct opposites to angels. They are
             created from human souls who have endured prolonged extreme torture in Hell. Via this process, they
@@ -60,7 +61,7 @@
             the demon-killing knife or the Colt. Holy water burns them and reveals their presence.
         </dd>
 
-        <dt>Vampires</dt>
+        <dt>Vampires<!-- Weakness: decapitation, Dead Man's Blood, devil's trap --></dt>
         <dd>
             Unlike traditional lore, Supernatural vampires are created when a human drinks vampire blood. They
             develop retractable fangs and feed on human blood to survive. They possess enhanced strength,
@@ -69,7 +70,7 @@
             particularly dangerous. They often live in nests with a hierarchical structure led by an Alpha vampire.
         </dd>
 
-        <dt>Werewolves</dt>
+        <dt>Werewolves<!-- Weakness: silver bullet to the heart --></dt>
         <dd>
             Werewolves in Supernatural transform during the full moon, though some can learn to control their
             transformations. The condition is transmitted through a bite and causes the victim to develop heightened
@@ -78,7 +79,7 @@
             than bitten, have greater control and can transform at will.
         </dd>
 
-        <dt>Angels</dt>
+        <dt>Angels<!-- Weakness: angel blade, holy fire, removing their grace --></dt>
         <dd>
             Angels are celestial beings created by God to serve Heaven and protect humanity. They require a
             human vessel to interact with Earth and possess immense powers including teleportation, healing, and
@@ -88,7 +89,7 @@
             prove to be ruthless and authoritarian, willing to sacrifice humans for "the greater good."
         </dd>
 
-        <dt>Ghosts</dt>
+        <dt>Ghosts<!-- Weakness: salt, iron, burning their remains or attached object --></dt>
         <dd>
             Ghosts are spirits of deceased humans who remain bound to Earth due to unfinished business,
             violent deaths, or powerful emotional attachments. They can move objects, manipulate electricity,
@@ -98,6 +99,43 @@
             Some ghosts become violent and vengeful over time, losing their humanity completely.
         </dd>
     </dl>
+
+    <!-- HUNTER'S LOG - live bestiary controls                        -->
+    <h2>Hunter's Log</h2>
+
+    <div class="toolkit-section">
+
+        <div class="toolkit-group">
+            <h3>Hunter Notes</h3>
+            <button onclick="revealHunterNotes()">Reveal / Hide Weaknesses</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Promote Threat</h3>
+            <button onclick="promoteToHeading()">Promote / Demote Demons</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Field Note</h3>
+            <button onclick="addFieldNote()">Add / Remove Note</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Threat Alert</h3>
+            <button onclick="prependThreatAlert()">Add / Remove Alert</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Archive Source</h3>
+            <button onclick="appendArchiveCitation()">Add / Remove Source</button>
+        </div>
+
+        <div class="toolkit-group">
+            <h3>Last Entry</h3>
+            <button onclick="replaceLastEntry()">Update Last Entry</button>
+        </div>
+
+    </div>
 
     <h2>Gallery</h2>
 
@@ -113,7 +151,7 @@
             <p class="gallery-label">Vampire</p>
             <img src="vampire.jpg" width="700" height="394" alt="Vampire">
         </div>
-        
+
         <div class="gallery-item">
             <p class="gallery-label">Werewolf</p>
             <img src="werewolf.png" alt="Werewolf">
