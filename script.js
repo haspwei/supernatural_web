@@ -248,3 +248,92 @@ function replaceLastEntry() {
 
     last.replaceWith(replacement);                     // node.replaceWith
 }
+
+
+// Лабораторна робота 7
+ 
+// 1а. Обробник через HTML-атрибут - onmouseover="onGalleryHover(event)" на .gallery в HTML
+function onGalleryHover(event) {
+    if (event.target.tagName !== 'IMG') return;
+    const item = event.target.closest('.gallery-item');
+    if (!item) return;
+    item.style.transform = 'translateY(-6px)';
+    item.style.transition = 'transform 0.25s ease';
+    item.style.position = 'relative';
+    item.style.zIndex = '10';
+    event.target.style.outline = '2px solid #8B0000';
+    event.target.style.outlineOffset = '4px';
+    event.target.style.boxShadow = '0 8px 24px rgba(139,0,0,0.5)';
+}
+ 
+function onGalleryOut(event) {
+    if (event.target.tagName !== 'IMG') return;
+    const item = event.target.closest('.gallery-item');
+    if (item) { item.style.transform = ''; item.style.zIndex = ''; }
+    event.target.style.outline = '';
+    event.target.style.boxShadow = '';
+}
+ 
+// 1б. Обробник через властивість
+const gallery = document.querySelector('.gallery');
+if (gallery) gallery.onmouseout = onGalleryOut;
+ 
+// 1в. Два різних обробники однієї події (mouseover) через addEventListener
+function glowCreatureEntry(event) {
+    if (event.target.tagName === 'DT') {
+        event.target.style.textShadow = '0 0 12px #ff4444';
+        event.target.style.paddingLeft = '6px';
+    }
+}
+ 
+function logCreatureEntry(event) {
+    if (event.target.tagName === 'DT') {
+        const tracker = document.getElementById('hunter-tracker');
+        if (tracker) tracker.textContent = 'Scanning entry: ' + event.target.firstChild.textContent.trim();
+    }
+}
+ 
+const dl = document.querySelector('dl');
+if (dl) {
+    dl.addEventListener('mouseover', glowCreatureEntry);
+    dl.addEventListener('mouseover', logCreatureEntry);
+    dl.addEventListener('mouseout', function(event) {
+        if (event.target.tagName === 'DT') {
+            event.target.style.textShadow = '';
+            event.target.style.paddingLeft = '';
+        }
+    });
+ 
+    // 1г. Об'єкт з handleEvent - виводить event.currentTarget; видаляється через 60 секунд
+    const creatureWatcher = {
+        handleEvent(event) {
+            const tracker = document.getElementById('hunter-tracker');
+            tracker.textContent = '[ ' + event.currentTarget.tagName.toLowerCase() + ' ] - bestiary active';
+        }
+    };
+    dl.addEventListener('mouseenter', creatureWatcher);
+    setTimeout(function() {
+        dl.removeEventListener('mouseenter', creatureWatcher);
+        const tracker = document.getElementById('hunter-tracker');
+        if (tracker) tracker.textContent = 'Tracker deactivated - session expired';
+    }, 60000);
+ 
+    // 2а. Підсвічування елементів списку - обробник на dl, не на кожному dt (event.target)
+    dl.onclick = function(event) {
+        const dt = event.target.closest('dt');
+        if (!dt || dt.id) return;
+        document.querySelectorAll('dl dt.selected-threat').forEach(el => el.classList.remove('selected-threat'));
+        dt.classList.toggle('selected-threat');
+    };
+}
+ 
+// 2б. Прийом «Поведінка» - один обробник на меню, data-action на кнопках
+const menu = document.querySelector('.toolkit-section');
+if (menu) {
+    menu.addEventListener('click', function(event) {
+        const btn = event.target.closest('[data-action]');
+        if (!btn) return;
+        const fn = window[btn.dataset.action];
+        if (typeof fn === 'function') fn();
+    });
+}

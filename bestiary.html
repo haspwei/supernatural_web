@@ -7,7 +7,6 @@
     <title>Supernatural Bestiary</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -39,7 +38,7 @@
     </p>
 
     <p>
-        Hunting monsters isn't just about weapons — it requires knowledge and preparation.
+        Hunting monsters isn't just about weapons - it requires knowledge and preparation.
         What works on a vampire won't work on a demon. Some creatures can only be killed with specific items:
         silver for werewolves, iron for ghosts, or an angel blade for celestial beings.
         The Winchesters carry a mobile arsenal in their iconic 1967 Chevrolet Impala,
@@ -100,39 +99,42 @@
         </dd>
     </dl>
 
-    <!-- HUNTER'S LOG - live bestiary controls                        -->
+    <!-- Трекер: виводить event.currentTarget при наведенні на dl -->
+    <div id="hunter-tracker">Hover over a bestiary entry to activate the tracker...</div>
+
+    <!-- HUNTER'S LOG - live bestiary controls -->
     <h2>Hunter's Log</h2>
 
     <div class="toolkit-section">
 
         <div class="toolkit-group">
             <h3>Hunter Notes</h3>
-            <button onclick="revealHunterNotes()">Reveal / Hide Weaknesses</button>
+            <button data-action="revealHunterNotes">Reveal / Hide Weaknesses</button>
         </div>
 
         <div class="toolkit-group">
             <h3>Promote Threat</h3>
-            <button onclick="promoteToHeading()">Promote / Demote Demons</button>
+            <button data-action="promoteToHeading">Promote / Demote Demons</button>
         </div>
 
         <div class="toolkit-group">
             <h3>Field Note</h3>
-            <button onclick="addFieldNote()">Add / Remove Note</button>
+            <button data-action="addFieldNote">Add / Remove Note</button>
         </div>
 
         <div class="toolkit-group">
             <h3>Threat Alert</h3>
-            <button onclick="prependThreatAlert()">Add / Remove Alert</button>
+            <button data-action="prependThreatAlert">Add / Remove Alert</button>
         </div>
 
         <div class="toolkit-group">
             <h3>Archive Source</h3>
-            <button onclick="appendArchiveCitation()">Add / Remove Source</button>
+            <button data-action="appendArchiveCitation">Add / Remove Source</button>
         </div>
 
         <div class="toolkit-group">
             <h3>Last Entry</h3>
-            <button onclick="replaceLastEntry()">Update Last Entry</button>
+            <button data-action="replaceLastEntry">Update Last Entry</button>
         </div>
 
     </div>
@@ -140,7 +142,7 @@
     <h2>Gallery</h2>
 
     <!-- Блочний елемент div: галерея з float для зображень -->
-    <div class="gallery">
+    <div class="gallery" onmouseover="onGalleryHover(event)">
 
         <div class="gallery-item">
             <p class="gallery-label">Ghosts</p>
@@ -168,6 +170,7 @@
 
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
