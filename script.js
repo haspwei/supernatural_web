@@ -289,7 +289,8 @@ function glowCreatureEntry(event) {
 function logCreatureEntry(event) {
     if (event.target.tagName === 'DT') {
         const tracker = document.getElementById('hunter-tracker');
-        if (tracker) tracker.textContent = 'Scanning entry: ' + event.target.firstChild.textContent.trim();
+        if (tracker) tracker.textContent = 'Scanning: ' + event.target.firstChild.textContent.trim() +
+            (event.relatedTarget ? ' <- from: ' + event.relatedTarget.tagName.toLowerCase() : '');
     }
 }
  
@@ -301,6 +302,13 @@ if (dl) {
         if (event.target.tagName === 'DT') {
             event.target.style.textShadow = '';
             event.target.style.paddingLeft = '';
+            // ЛР8: event.relatedTarget - куди пішла миша
+            const tracker = document.getElementById('hunter-tracker');
+            if (tracker && event.relatedTarget) {
+                tracker.textContent = 'Left: ' + event.target.firstChild.textContent.trim() +
+                    ' → went to: ' + event.relatedTarget.tagName.toLowerCase() +
+                    (event.relatedTarget.className ? ' .' + event.relatedTarget.className.split(' ')[0] : '');
+            }
         }
     });
  
@@ -337,3 +345,91 @@ if (menu) {
         if (typeof fn === 'function') fn();
     });
 }
+
+// Лабораторна робота 8
+
+// relatedTarget вже додано вище у mouseout на dl (бестіарій)
+
+// Drag & Drop - Tonight's Hunt
+// mousedown - фіксуємо картку і зсув курсора
+// mousemove - переміщуємо ghost за мишею, підсвічуємо зону
+// mouseup   - кидаємо в зону або повертаємо
+(function () {
+    let dragging = null;
+    let ghost = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    document.querySelectorAll('.hunt-card').forEach(function (card) {
+        card.addEventListener('mousedown', function (e) {
+            dragging = card;
+            const rect = card.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+
+            ghost = card.cloneNode(true);
+            ghost.id = 'hunt-ghost';
+            ghost.style.position = 'fixed';
+            ghost.style.left = (e.clientX - offsetX) + 'px';
+            ghost.style.top  = (e.clientY - offsetY) + 'px';
+            ghost.style.pointerEvents = 'none';
+            ghost.style.opacity = '0.85';
+            ghost.style.zIndex  = '1000';
+            document.body.appendChild(ghost);
+
+            card.style.opacity = '0.35';
+            e.preventDefault();
+        });
+    });
+
+    document.addEventListener('mousemove', function (e) {
+        if (!ghost) return;
+        ghost.style.left = (e.clientX - offsetX) + 'px';
+        ghost.style.top  = (e.clientY - offsetY) + 'px';
+
+        const zone = document.getElementById('hunt-zone');
+        if (!zone) return;
+        const r = zone.getBoundingClientRect();
+        if (e.clientX >= r.left && e.clientX <= r.right &&
+            e.clientY >= r.top  && e.clientY <= r.bottom) {
+            zone.classList.add('hunt-zone-active');
+        } else {
+            zone.classList.remove('hunt-zone-active');
+        }
+    });
+
+    document.addEventListener('mouseup', function (e) {
+        if (!ghost || !dragging) return;
+
+        ghost.remove();
+        ghost = null;
+        dragging.style.opacity = '';
+
+        const zone = document.getElementById('hunt-zone');
+        if (zone) {
+            const r = zone.getBoundingClientRect();
+            if (e.clientX >= r.left && e.clientX <= r.right &&
+                e.clientY >= r.top  && e.clientY <= r.bottom) {
+                if (!zone.querySelector('[data-creature="' + dragging.dataset.creature + '"]')) {
+                    const entry = document.createElement('div');
+                    entry.className = 'hunt-entry';
+                    entry.dataset.creature = dragging.dataset.creature;
+                    entry.textContent = dragging.textContent;
+                    entry.title = 'Click to remove';
+                    entry.addEventListener('click', function () { entry.remove(); });
+                    zone.appendChild(entry);
+                }
+            }
+            zone.classList.remove('hunt-zone-active');
+        }
+
+        dragging = null;
+    });
+
+    const clearBtn = document.getElementById('hunt-clear');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            document.querySelectorAll('#hunt-zone .hunt-entry').forEach(function (el) { el.remove(); });
+        });
+    }
+})();
